@@ -9,9 +9,10 @@ interface User {
 interface Props {
   users: User[];
   onUserClick: (userId: number) => void;
+  onDelete: (userId: number) => void;
 }
 
-const UserList: React.FC<Props> = ({ users, onUserClick }) => {
+const UserList: React.FC<Props> = ({ users, onUserClick, onDelete }) => {
   return (
    <center>
    <div>
@@ -31,8 +32,9 @@ const UserList: React.FC<Props> = ({ users, onUserClick }) => {
               <td>{user.id}</td>
               <td>{user.name}</td>
               {/* Dodaj inne komórki */}
-              <td
-                 onClick={() => onUserClick(user.id)}>ℹ️
+              <td>
+              <button onClick={() => onUserClick(user.id)}>ℹ️</button>
+                <button onClick={() => onDelete(user.id)}>❌</button>
               </td>
             </tr>
           ))}
