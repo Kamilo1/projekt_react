@@ -27,12 +27,13 @@ const UserContainer: React.FC = () => {
 
   const handleCloseModal = () => {
     setSelectedUserId(null);
-    setShowDetailsModal(false); // Ukryj modal po zamknięciu
+    setShowDetailsModal(false); 
   };
   const handleUserDelete = (userId: number) => {
     const updatedUsers = users.filter((user) => user.id !== userId);
     setUsers(updatedUsers);
-    setSelectedUserId(null); // Usuń wybranego użytkownika, jeśli został usunięty
+    setSelectedUserId(null); 
+    setShowDetailsModal(false);
   };
   return (
     <div>
