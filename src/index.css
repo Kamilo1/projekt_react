@@ -33,8 +33,6 @@ code {
   margin-top: 5px;
 }
 
-/*..*/
-
 
 body {
   font-family: 'Arial', sans-serif;
@@ -137,11 +135,11 @@ h3 {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  cursor: pointer; /* Dodano kursor do wskazania, że to klikalne */
+  cursor: pointer; 
 }
 
 .album p {
-  margin: 0; /* Usunięto domyślne marginesy odstępu dla p */
+  margin: 0; 
 }
 
 @media only screen and (max-width: 600px) {
