@@ -3,45 +3,33 @@ import React from 'react';
 interface User {
   id: number;
   name: string;
-  // ... inne właściwości użytkownika
 }
 
 interface Props {
   users: User[];
   onUserClick: (userId: number) => void;
   onDelete: (userId: number) => void;
+  onShowAlbumsClick: (userId:number) => void;
 }
 
-const UserList: React.FC<Props> = ({ users, onUserClick, onDelete }) => {
+
+
+const UserList: React.FC<Props> = ({ users, onUserClick, onDelete, onShowAlbumsClick }) => {
   return (
-   <center>
-   <div>
-      <h2>Lista użytkowników:</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            {/* Dodaj inne kolumny */}
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user) => (
-            <tr key={user.id}>
-              <td>{user.id}</td>
-              <td>{user.name}</td>
-              {/* Dodaj inne komórki */}
-              <td>
-              <button onClick={() => onUserClick(user.id)}>ℹ️</button>
-                <button onClick={() => onDelete(user.id)}>❌</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="center">
+    <div className="user-container">
+      {users.map((user) => (
+        <div key={user.id} className="user-card">
+          <h3>{user.name}</h3>
+          <div className="user-actions">
+            <button onClick={() => onUserClick(user.id)}><i className="fa-solid fa-circle-info"></i></button>
+            <button onClick={() => onDelete(user.id)}><i className="fa-solid fa-trash"></i></button>
+            <button onClick={() => onShowAlbumsClick(user.id)}><i className="fa-solid fa-boxes-stacked"></i></button>
+          </div>
+        </div>
+      ))}
     </div>
-    </center>
+  </div>
   );
 };
 

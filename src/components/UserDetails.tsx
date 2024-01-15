@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import UserAlbums from './UserAlbums';
 
 interface User {
     id: number;
@@ -26,10 +27,10 @@ interface User {
 
 interface Props {
   userId: number | null;
-  onClose: () => void; // Dodaj funkcję onClose jako props
+  onClose: () => void; 
 }
 
-const UserDetails: React.FC<Props> = ({ userId, onClose }) => {
+const UserDetails: React.FC<Props> = ({ userId, onClose}) => {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
@@ -57,8 +58,7 @@ const UserDetails: React.FC<Props> = ({ userId, onClose }) => {
     <div className="modal">
       <div className="modal-content">
         <span className="close" onClick={onClose}>&times;</span>
-        <h2>Details for User ID: {user.id}</h2>
-        <p>Name: {user.name}</p>
+        <h2>{user.name}</h2>
         <p>Username: {user.username}</p>
       <p>Email: {user.email}</p>
       <h3>Address:</h3>

@@ -11,3 +11,150 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.user-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.user-card {
+  width: 25%;
+  padding: 10px;
+  margin: 5px;
+  background-color: #fff;
+  border: 3px solid #ddd;
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.user-actions {
+  margin-top: 5px;
+}
+
+/*..*/
+
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5fc; 
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+
+button {
+  padding: 8px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+button:hover {
+  color: #4e54c8;
+}
+
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #c9ccf8;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  font-family: 'Arial', sans-serif;
+  border-radius: 6px;
+  overflow: hidden;
+  border-radius: 6px;
+  overflow: hidden;
+ 
+  text-align: center; 
+
+}
+
+.modal-content h2{
+  font-size: 32px;
+  margin-top: 10px;
+  margin-bottom: 20px; 
+  color: #fff;
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+h3 {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px; 
+  cursor: pointer;
+}
+
+.albums-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.album {
+  width: 30%;
+  padding: 20px;
+  margin: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer; /* Dodano kursor do wskazania, że to klikalne */
+}
+
+.album p {
+  margin: 0; /* Usunięto domyślne marginesy odstępu dla p */
+}
+
+@media only screen and (max-width: 600px) {
+  table {
+    width: 100%;
+  }
+
+  th, td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  thead {
+    display: none;
+  }
+}
