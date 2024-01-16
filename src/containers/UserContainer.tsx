@@ -21,6 +21,21 @@ const UserContainer: React.FC = () => {
       .catch((error) => console.log(error));
   }, []);
 
+  const sortUsersAZ = () => {
+    const sorted = [...users].sort((a, b) =>
+       a.name.localeCompare(b.name) 
+    );
+    setUsers(sorted);
+    
+  };
+  
+  const sortUsersZA = () => {
+    const sorted = [...users].sort((a, b) =>
+       b.name.localeCompare(a.name) 
+    );
+    setUsers(sorted);
+    
+  };
   const handleUserClick = (userId: number) => {
     setSelectedUserId(userId);
     setShowDetailsModal(true);
@@ -49,7 +64,8 @@ const UserContainer: React.FC = () => {
 
   return (
     <div>
-      <UserList users={users} onUserClick={handleUserClick} onDelete={handleUserDelete} onShowAlbumsClick={handleShowAlbumsClick} />
+      <UserList users={users} onUserClick={handleUserClick} onDelete={handleUserDelete} onSortUsersAZ={sortUsersAZ} onSortUsersZA={sortUsersZA} onShowAlbumsClick={handleShowAlbumsClick}/>
+      
       {showDetailsModal && !showAlbums && (
         <UserDetails userId={selectedUserId} onClose={handleCloseModal} />
       )}
