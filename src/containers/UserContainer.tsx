@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import UserList from '../components/UserList';
 import UserDetails from '../components/UserDetails';
+import UserEdit from '../components/UserEdit';
 import UserAlbums from '../components/UserAlbums';
 import UserPostsAndComments from '../components/UserPostsAndComments';
 
@@ -13,6 +14,7 @@ const UserContainer: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
   const [showDetailsModal, setShowDetailsModal] = useState(false);
+  const [showEditMode, setShowEditMode] = useState(false);
   const [showAlbums, setShowAlbums] = useState(false);
   const [showPostsAndComments, setShowPostsAndComments] = useState(false);
 
@@ -71,7 +73,18 @@ const UserContainer: React.FC = () => {
     setShowAlbums(false);
     setShowPostsAndComments(false);
   };
+  const handleUserEdit = (userId: number) => {
+    setSelectedUserId(userId);
+    setShowEditMode(true);
+    setShowAlbums(false);
+  };
+  const handleCloseUserEdit = () => {
+    setSelectedUserId(null);
+    setShowEditMode(false);
+    setShowAlbums(false);
+  };
 
+  
   return (
     <div>
       <UserList 
@@ -82,8 +95,12 @@ const UserContainer: React.FC = () => {
       onSortUsersZA={sortUsersZA} 
       onShowAlbumsClick={handleShowAlbumsClick}
       onShowPostsAndComments ={handleShowPostsAndCommentsClick}
-       />
+      onShowEditMode={handleUserEdit}
       
+       />
+      {showEditMode && !showAlbums && (
+        <UserEdit userId={selectedUserId} onClose={handleCloseUserEdit} />
+      )}
       {showDetailsModal && !showAlbums && (
         <UserDetails userId={selectedUserId} onClose={handleCloseModal} />
       )}

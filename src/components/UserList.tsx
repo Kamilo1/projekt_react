@@ -13,9 +13,9 @@ interface Props {
   onShowPostsAndComments: (userId:number) => void;
   onSortUsersAZ: () => void;
   onSortUsersZA: () => void;
+  onShowEditMode: (userId: number) => void;
 }
-
-const UserList: React.FC<Props> = ({ users, onUserClick, onDelete, onShowAlbumsClick, onSortUsersAZ, onSortUsersZA, onShowPostsAndComments}) => {
+const UserList: React.FC<Props> = ({ users, onUserClick, onDelete, onShowAlbumsClick, onSortUsersAZ, onSortUsersZA, onShowPostsAndComments, onShowEditMode}) => {
   return (
     <div className="center">
       <button onClick={onSortUsersAZ} className="sort-button">
@@ -35,7 +35,8 @@ const UserList: React.FC<Props> = ({ users, onUserClick, onDelete, onShowAlbumsC
               </button>
               <button onClick={() => onShowAlbumsClick(user.id)}><i className="fa-solid fa-boxes-stacked"></i>
               </button>
-              <button onClick={() => onShowPostsAndComments(user.id)}><i className="fa-solid fa-comments"></i>
+              <button onClick={() => onShowPostsAndComments(user.id)}><i className="fa-solid fa-comments"></i></button>
+              <button onClick={() => onShowEditMode(user.id)}><i className="fa-solid fa-boxes-stacked"></i>
               </button>
             </div>
           </div>
