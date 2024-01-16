@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import UserAlbums from './UserAlbums';
+import Modal from './Modal';
 
 interface User {
     id: number;
@@ -55,9 +55,7 @@ const UserDetails: React.FC<Props> = ({ userId, onClose}) => {
 
   return (
     <center>
-    <div className="modal">
-      <div className="modal-content">
-        <span className="close" onClick={onClose}>&times;</span>
+    <Modal onClose={onClose}>
         <h2>{user.name}</h2>
         <p>Username: {user.username}</p>
       <p>Email: {user.email}</p>
@@ -74,8 +72,7 @@ const UserDetails: React.FC<Props> = ({ userId, onClose}) => {
       <p>Name: {user.company.name}</p>
       <p>Catchphrase: {user.company.catchPhrase}</p>
       <p>Business: {user.company.bs}</p>
-      </div>
-    </div>
+</Modal>
     </center>
   );
 };

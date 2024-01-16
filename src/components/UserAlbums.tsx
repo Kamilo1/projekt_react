@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Modal from './Modal';
 
 interface Album {
   userId: number;
@@ -24,10 +25,9 @@ const UserAlbums: React.FC<Props> = ({ userId , onClose}) => {
   }, [userId]);
 
   return (
-    <div className="modal">
-      <div className="modal-content">
-        <span className="close" onClick={onClose}>&times;</span>
-        <h2>User Albums</h2>
+
+    <Modal onClose={onClose}>
+        <h2>Albums</h2>
         <div className="albums-container">
           {albums.map((album) => (
             <div key={album.id} className="album">
@@ -35,8 +35,8 @@ const UserAlbums: React.FC<Props> = ({ userId , onClose}) => {
             </div>
           ))}
         </div>
-      </div>
-    </div>
+    </Modal>
+    
   );
 };
 
