@@ -38,7 +38,6 @@ const UserList: React.FC<Props> = ({
         Z-A
       </button>
       </div>
-      
       <div className="user-container">
         {users.map((user) => (
           <div key={user.id} className="user-card">
